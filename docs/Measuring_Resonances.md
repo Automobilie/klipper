@@ -470,11 +470,7 @@ CSV files if you do not desire to average them.
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 ```
-Note the measurements can also be collected with the `SHAPER_CALIBRATE` function, but will instead be called `/tmp/calibration_data_x_*` and `/tmp/calibration_data_y_*`.
-```
-~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_x_*.csv -o /tmp/shaper_calibrate_x.png
-~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_y_*.csv -o /tmp/shaper_calibrate_y.png
-```
+
 This script will generate the charts `/tmp/shaper_calibrate_x.png` and
 `/tmp/shaper_calibrate_y.png` with frequency responses. You will also get the
 suggested frequencies for each input shaper, as well as which input shaper is
@@ -511,10 +507,12 @@ or you can choose some other configuration yourself based on the generated
 charts: peaks in the power spectral density on the charts correspond to
 the resonance frequencies of the printer.
 
-Note that alternatively you can run the input shaper auto-calibration
-from Klipper [directly](#input-shaper-auto-calibration), which can be
-convenient, for example, for the input shaper
-[re-calibration](#input-shaper-re-calibration).
+Note that alternatively you can run the input shaper auto-calibration `SHAPER_CALIBRATE`
+from Klipper [directly](#input-shaper-auto-calibration), which will also generate the two csv files (`/tmp/calibration_data_*.csv`)
+used in the above graphing script and can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
+
+    ~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_x_*.csv -o /tmp/shaper_calibrate_x.png
+    ~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_y_*.csv -o /tmp/shaper_calibrate_y.png
 
 ### Bed-slinger printers
 
@@ -782,6 +780,7 @@ now to save them and restart the Klipper. Note that this will not update
 following the considerations in [Selecting max_accel](#selecting-max_accel)
 section.
 
+The SHAPER_CALIBRATE command also generates csv output, but with different filenames (/tmp/calibration_data_*.csv). These files can also be processed using the scripts as shown in the chapters above.
 
 If your printer is a bed slinger printer, you can specify which axis
 to test, so that you can change the accelerometer mounting point between
