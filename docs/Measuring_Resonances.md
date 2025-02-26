@@ -470,6 +470,11 @@ CSV files if you do not desire to average them.
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 ```
+Note the measurements can also be collected with the `SHAPER_CALIBRATE` function, but will instead be called `/tmp/calibration_data_x_*` and `/tmp/calibration_data_y_*`.
+```
+~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_x_*.csv -o /tmp/shaper_calibrate_x.png
+~/klipper/scripts/calibrate_shaper.py /tmp/calibration_data_y_*.csv -o /tmp/shaper_calibrate_y.png
+```
 This script will generate the charts `/tmp/shaper_calibrate_x.png` and
 `/tmp/shaper_calibrate_y.png` with frequency responses. You will also get the
 suggested frequencies for each input shaper, as well as which input shaper is
